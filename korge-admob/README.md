@@ -1,6 +1,6 @@
 # KorGE Admob Support
 
-![](./admob.svg)
+<img src="./admob.svg" width="128" height="128" />
 
 Adds support for <https://admob.google.com/>.
 
