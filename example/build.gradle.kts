@@ -26,6 +26,7 @@ korge {
     targetAndroid()
     serializationJson()
 
+    androidPermission("INTERNET")
     androidManifestApplicationChunk(
         "<meta-data android:name=\"com.google.android.gms.ads.APPLICATION_ID\" android:value=\"ca-app-pub-3395905965441916~3606887124\" />"
     )
