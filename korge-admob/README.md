@@ -4,6 +4,10 @@
 
 Adds support for <https://admob.google.com/>.
 
+## Supports
+
+KorGE 4.0.0
+
 ## Usage
 
 In `build.gradle.kts`:
