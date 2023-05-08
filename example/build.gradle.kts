@@ -3,7 +3,7 @@ import korlibs.korge.gradle.*
 plugins {
     //alias(libs.plugins.korge)
     //id("com.soywiz.korge") version "999.0.0.999"
-    id("com.soywiz.korge") version "4.0.0-rc4"
+    id("com.soywiz.korge") version "4.0.0-rc5"
 }
 
 korge {
@@ -25,6 +25,10 @@ korge {
     targetIos()
     targetAndroid()
     serializationJson()
+
+    androidManifestApplicationChunk(
+        "<meta-data android:name=\"com.google.android.gms.ads.APPLICATION_ID\" android:value=\"ca-app-pub-3395905965441916~3606887124\" />"
+    )
 }
 
 dependencies {

@@ -1,0 +1,12 @@
+buildscript { repositories { mavenLocal(); mavenCentral(); google(); gradlePluginPortal() } }
+plugins {
+  id("com.soywiz.kproject") version "0.0.1-SNAPSHOT"
+}
+dependencies {
+  add("commonMainApi", "com.soywiz.korlibs.korge2:korge")
+  add("androidMainApi", "com.google.android.gms:play-services-ads:16.0.0")
+}
+File extraGradle = file("build.extra.gradle")
+if (extraGradle.exists()) {
+    apply from: extraGradle
+}
