@@ -1,3 +1,5 @@
+icon: admob.svg
+description: Admob support
 dependencies:
 - "maven::common::com.soywiz.korlibs.korge2:korge"
 - maven::android::com.google.android.gms:play-services-ads:16.0.0
