@@ -5,7 +5,7 @@ import korlibs.image.color.*
 import korlibs.korge.view.*
 import korlibs.math.geom.*
 
-suspend fun AdmobCreateDefault(views: Views, testing: Boolean): Admob = object : Admob(views) {
+fun AdmobCreateDefault(views: Views, testing: Boolean): Admob = object : Admob(views) {
     override suspend fun available(): Boolean = false
     override suspend fun bannerShow() {
         views.onAfterRender {

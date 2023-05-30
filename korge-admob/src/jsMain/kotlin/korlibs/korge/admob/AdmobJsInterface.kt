@@ -2,20 +2,18 @@ package korlibs.korge.admob
 
 import korlibs.io.*
 import korlibs.korge.view.Views
-import korlibs.io.lang.printStackTrace
 import kotlinx.coroutines.CancellableContinuation
-import kotlinx.coroutines.await
 import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlin.coroutines.resume
 import kotlin.coroutines.resumeWithException
 import kotlin.js.Promise
 
-actual suspend fun AdmobCreate(views: Views, testing: Boolean): Admob {
-	val admob: AdmobJs = jsGlobal.asDynamic().admob ?: return AdmobCreateDefault(views, testing)
-	return CreatedAdmobJs(admob, views, testing)
+actual fun AdmobCreate(views: Views, testing: Boolean): Admob {
+	val admob: AdmobJsInterface = jsGlobal.asDynamic().admob ?: return AdmobCreateDefault(views, testing)
+	return AdmobJs(admob, views, testing)
 }
 
-class CreatedAdmobJs(val admob: AdmobJs, views: Views, val testing: Boolean) : Admob(views) {
+class AdmobJs(val admob: AdmobJsInterface, views: Views, val testing: Boolean) : Admob(views) {
 	val admobBanner = admob.banner
 	val admobInterstitial = admob.interstitial
 	val admobRewardvideo = admob.rewardvideo
@@ -44,8 +42,9 @@ class CreatedAdmobJs(val admob: AdmobJs, views: Views, val testing: Boolean) : A
 		return admobInterstitial.isReady().awaitDebug("admobInterstitial.isReady()")
 	}
 
-	override suspend fun interstitialShowAndWait(): Unit {
+	override suspend fun interstitialShowAndWait(): Boolean {
 		admobInterstitial.show().awaitDebug("admobInterstitial.show()")
+		return true
 	}
 
 	/////////////////
@@ -58,8 +57,9 @@ class CreatedAdmobJs(val admob: AdmobJs, views: Views, val testing: Boolean) : A
 	override suspend fun rewardvideoIsLoaded(): Boolean {
 		return admobRewardvideo.isReady().awaitDebug("admobRewardvideo.isReady()")
 	}
-	override suspend fun rewardvideoShowAndWait(): Unit {
+	override suspend fun rewardvideoShowAndWait(): Boolean {
 		admobRewardvideo.show().awaitDebug("admobRewardvideo.show")
+		return true
 	}
 }
 
@@ -93,7 +93,8 @@ suspend fun awaitDynamic(value: dynamic): dynamic = when {
 }
 */
 
-external interface AdmobJs {
+@JsName("AdmobJs")
+external interface AdmobJsInterface {
 	val banner: AdmobJsBanner
 	val interstitial: AdmobJsInterstitialOrVideo
 	val rewardvideo: AdmobJsInterstitialOrVideo

@@ -6,6 +6,6 @@ plugins {
 }
 
 
-rootProject.name = "${rootDir.name}-example"
+rootProject.name = "example-${rootDir.name}"
 
 kproject("./deps")
