@@ -2,12 +2,10 @@ pluginManagement { repositories {  mavenLocal(); mavenCentral(); google(); gradl
 
 plugins {
     //id("com.soywiz.kproject.settings") version "0.0.1-SNAPSHOT"
-    id("com.soywiz.kproject.settings") version "0.2.6"
+    id("com.soywiz.kproject.settings") version "0.3.1"
 }
 
 
-rootProject.name = "${rootDir.parentFile.name}-example"
-
-//println("rootProject.name=${rootProject.name}")
+rootProject.name = "${rootDir.name}-example"
 
 kproject("./deps")

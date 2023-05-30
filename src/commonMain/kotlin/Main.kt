@@ -12,6 +12,7 @@ suspend fun main() = Korge {
     )
     admob.bannerShow()
 
+    admob.rewardvideolPrepare()
     sceneContainer().changeTo({ MainMyModuleScene() })
 }
 
