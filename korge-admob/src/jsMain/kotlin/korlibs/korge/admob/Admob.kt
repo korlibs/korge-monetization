@@ -50,12 +50,12 @@ class CreatedAdmobJs(val admob: AdmobJs, views: Views, val testing: Boolean) : A
 
 	/////////////////
 
-	override suspend fun rewardvideolPrepare(config: Admob.Config) {
+	override suspend fun rewardvideoPrepare(config: Admob.Config) {
 		admobRewardvideo.config(config.convert(testing))
 		admobRewardvideo.prepare().awaitDebug("admobRewardvideo.prepare()")
 	}
 
-	override suspend fun rewardvideolIsLoaded(): Boolean {
+	override suspend fun rewardvideoIsLoaded(): Boolean {
 		return admobRewardvideo.isReady().awaitDebug("admobRewardvideo.isReady()")
 	}
 	override suspend fun rewardvideoShowAndWait(): Unit {

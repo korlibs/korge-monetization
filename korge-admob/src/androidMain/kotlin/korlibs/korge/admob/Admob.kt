@@ -168,7 +168,7 @@ private class AndroidAdmob(views: Views, val activity: Activity, val testing: Bo
 		}
 	}
 
-	override suspend fun rewardvideolPrepare(config: Admob.Config) {
+	override suspend fun rewardvideoPrepare(config: Admob.Config) {
 		activity.runOnUiThread {
 			rewardVideo.userId = config.userId
 			if (config.immersiveMode != null) {
@@ -181,7 +181,7 @@ private class AndroidAdmob(views: Views, val activity: Activity, val testing: Bo
 		}
 	}
 
-	override suspend fun rewardvideolIsLoaded(): Boolean = rewardVideo.isLoaded
+	override suspend fun rewardvideoIsLoaded(): Boolean = rewardVideo.isLoaded
 
 	override suspend fun rewardvideoShowAndWait() {
 		rewardVideoSignals.onRewardedVideoAdClosed.executeAndWaitSignal {

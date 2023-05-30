@@ -33,16 +33,16 @@ abstract class Admob(val views: Views) {
 	open suspend fun interstitialIsLoaded(): Boolean = false
 	open suspend fun interstitialShowAndWait() = Unit
 
-	open suspend fun rewardvideolPrepare(config: Config) = Unit
-	open suspend fun rewardvideolIsLoaded(): Boolean = false
+	open suspend fun rewardvideoPrepare(config: Config) = Unit
+	open suspend fun rewardvideoIsLoaded(): Boolean = false
 	open suspend fun rewardvideoShowAndWait() = Unit
 
 	suspend fun interstitialWaitLoaded() {
 		while (!interstitialIsLoaded()) delay(100.milliseconds)
 	}
 
-	suspend fun rewardvideolWaitLoaded() {
-		while (!rewardvideolIsLoaded()) delay(100.milliseconds)
+	suspend fun rewardvideoWaitLoaded() {
+		while (!rewardvideoIsLoaded()) delay(100.milliseconds)
 	}
 
 	// Utility methods
@@ -58,9 +58,9 @@ abstract class Admob(val views: Views) {
 		interstitialShowAndWait()
 	}
 
-	suspend fun rewardvideolWaitAndShow(config: Config) {
-		rewardvideolPrepare(config)
-		rewardvideolWaitLoaded()
+	suspend fun rewardvideoWaitAndShow(config: Config) {
+		rewardvideoPrepare(config)
+		rewardvideoWaitLoaded()
 		rewardvideoShowAndWait()
 	}
 }
