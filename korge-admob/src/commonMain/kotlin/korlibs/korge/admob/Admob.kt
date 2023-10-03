@@ -1,14 +1,12 @@
 package korlibs.korge.admob
 
 import korlibs.datastructure.Extra
-import korlibs.io.async.Signal
-import korlibs.time.milliseconds
-import korlibs.korge.view.Views
 import korlibs.io.async.delay
+import korlibs.korge.view.Views
+import korlibs.time.milliseconds
 import kotlinx.coroutines.channels.Channel
 import kotlinx.coroutines.channels.ReceiveChannel
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.flow
+import kotlinx.coroutines.delay
 import kotlin.jvm.JvmOverloads
 
 expect fun AdmobCreate(views: Views, testing: Boolean): Admob
